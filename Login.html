@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/video.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/register.css">
+</head>
+<body>
+    <header class="header">
+        <div class="left-section">
+          <img class="hamburger-menu" src="icons/menu.png">
+          <img class="youtube-logo" src="icons/Logo.png">
+        </div>
+        <div class="middle-section">
+          <input class="search-bar" type="text" placeholder="Search">
+          <button class="search-button">
+            <img class="search-icon" src="icons/search.svg">
+            <div class="tooltip">Search</div>
+          </button>
+          <!-- Put position absolute inside position relative -->
+          <button class="voice-search-button">
+            <img class="voice-search-icon" src="icons/voice-search-icon.svg">
+            <div class="tooltip">Search with your voice</div>
+          </button>
+        </div>
+        <div class="right-section">
+          <div class="upload-icon-container">
+            <img class="upload-icon" src="icons/planet-earth.png">
+            <div class="tooltip">Create</div>
+          </div>
+          <img class="youtube-apps-icon" src="icons/food-safety.png">
+          <div class="notifications-icon-container">
+            <img class="notifications-icon" src="icons/order.png">
+            <div class="notifications-count">3</div>
+          </div>
+          <a href="Login.html"><img class="current-user-picture" src="icons/profile.png"></a>
+        </div>
+      </header>
+  
+      <nav class="sidebar">
+        <div class="sidebar-link">
+          <a href=annapurna.html><img src="icons/home.png"></a>
+          <div><b>Home</b></div>
+        </div>
+        <div class="sidebar-link">
+          <a href="About us.html"><img src="icons/about-us.png"></a>
+          <div>About Us</div>
+        </div>
+        <div class="sidebar-link">
+          <a href="GuiltFree.html"><img src="icons/salad.png"></a>
+          <div>GuiltFree</div>
+        </div>
+        <div class="sidebar-link">
+          <a href="Portfolio.html"><img src="icons/portfolio.png"></a>
+          <div>Portfolio</div>
+        </div>
+        <div class="sidebar-link">
+          <a href="Blog.html"><img src="icons/blog.png"></a>
+          <div>Blog</div>
+        </div>
+        <div class="sidebar-link">
+          <a href="Contact.html"></a><img src="icons/contact-us.png"></a>
+          <div>Contact</div>
+        </div>
+      </nav>
+<form id="myForm" onsubmit="return validateForm()">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr><br>
+
+    <label for="fname"><b>First Name</b></label><br>
+    <input type="text" placeholder="Enter First Name" name="fname" id="fname" required><br>
+
+    <label for="lname"><b>Last Name</b></label><br>
+    <input type="text" placeholder="Enter Last Name" name="Lname" id="Lname" required><br>
+
+    <label for="email"><b>Email</b></label><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long" required><br>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label><br>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br>
+
+    <label for="mobile"><b>Contact:</b></label><br>
+    <input type="text" placeholder="Mobile Number" id="mobile" name="mobile" maxlength="10" required />
+
+
+    <hr>
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+</form>
+<script>
+function validateForm() {
+  var password = document.getElementById("psw").value;
+  var confirmPassword = document.getElementById("psw-repeat").value;
+  var email = document.getElementById("email").value;
+  var mobile = document.getElementById("mobile").value;
+
+  // Check password match
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return false; // Prevent form submission
+  }
+
+  // Check email format (basic validation)
+  var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // Check mobile number length
+  if (mobile.length !== 10) {
+    alert("Mobile number must be exactly 10 digits.");
+    return false;
+  }
+
+}
+</script>
+</body>
+</html>
